@@ -6,17 +6,18 @@ import aiohttp
 import datetime
 
 # ============================================================
-#  CONFIGURATION — MODIFIE CES VALEURS
+#  CONFIGURATION — LIT DEPUIS LES VARIABLES RAILWAY
 # ============================================================
-DISCORD_TOKEN = "TON_TOKEN_DISCORD_ICI"
-TWITCH_CLIENT_ID = "TON_CLIENT_ID_TWITCH"
-TWITCH_CLIENT_SECRET = "TON_CLIENT_SECRET_TWITCH"
-TWITCH_USERNAME = "TON_PSEUDO_TWITCH"         # ex: kikxx
-YOUTUBE_CHANNEL_ID = "TON_ID_CHAINE_YOUTUBE"  # ex: UCxxxxxxxxxxxxxxxx
+import os
+
+DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
+TWITCH_CLIENT_ID = os.environ.get("TWITCH_CLIENT_ID")
+TWITCH_CLIENT_SECRET = os.environ.get("TWITCH_CLIENT_SECRET")
+TWITCH_USERNAME = os.environ.get("TWITCH_USERNAME", "kikxx")
 TIKTOK_USERNAME = "kikxxway"
 
-ANNOUNCE_CHANNEL_ID = 123456789  # ID du salon #live ou #annonces
-ROLE_LIVE_ID = 123456789         # ID du rôle à mentionner quand tu go live (optionnel)
+ANNOUNCE_CHANNEL_ID = int(os.environ.get("ANNOUNCE_CHANNEL_ID", 0))
+ROLE_LIVE_ID = 0
 
 XP_FILE = "xp_data.json"
 # ============================================================
